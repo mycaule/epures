@@ -2,6 +2,8 @@
  * @author Kate
  */
 
+if (typeof define !== 'function') { var define = require('amdefine')(module) }
+
 define([ "./rule"], function( Rule) {
     var RuleWeighting = Object.freeze({
         RED : 0,

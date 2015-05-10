@@ -1,8 +1,10 @@
+if (typeof define !== 'function') { var define = require('amdefine')(module) }
+
 /**
  * @author Kate Compton
  */
 
-define([], function() {
+define(["./utilities.js"], function(tracery) {
     'use strict';
     var Action = function(node, raw) {
 

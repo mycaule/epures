@@ -1,9 +1,17 @@
+if (typeof define !== 'function') { var define = require('amdefine')(module) }
+
 /**
  * @author Kate Compton
  */
 
 define([], function() {
     'use strict';
+
+
+    function addError(error) {
+        console.warn(error);
+    };
+
     function inQuotes(s) {
         return '"' + s + '"';
     };
@@ -201,6 +209,7 @@ define([], function() {
     }
 
     return {
+        addError : addError,
         parseTag : parseTag,
         parseRule : parseRule,
         testParse : testParse,

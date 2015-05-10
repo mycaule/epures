@@ -1,8 +1,14 @@
 /**
  * @author Kate
  */
+if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
-define([], function() {
+define(["../utilities.js"], function(tracery) {
+
+    //tracery = require('tracery');
+    
+    
+
 
     var Rule = function(raw) {
         this.raw = raw;

@@ -1,8 +1,11 @@
+if (typeof define !== 'function') { var define = require('amdefine')(module) }
+
+
 /**
  * @author Kate Compton
  */
 
-define(["./action", "./inheritance"], function(Action, inheritance) {
+define(["./action", "./inheritance", "./utilities.js"], function(Action, inheritance, tracery) {
 
     // A tracery expansion node
     var nodeCount = 0;
@@ -88,7 +91,9 @@ define(["./action", "./inheritance"], function(Action, inheritance) {
             }
 
             this.setParent(parent);
-            $.extend(this, parsedTag);
+
+            var extend = require('extend')
+            extend(this, parsedTag);
         },
 
         expand : function() {

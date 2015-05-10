@@ -1,3 +1,7 @@
+if (typeof define !== 'function') { var define = require('amdefine')(module) }
+
+
+
 /**
  * @author Kate Compton
 
@@ -6,10 +10,9 @@
 define(["./utilities", "./grammar", "./node"], function(traceryUtilities, Grammar, Node) {
     'use strict';
 
-var tracery = {};
-    console.log("in main tracery");
-
-    $.extend(tracery, traceryUtilities);
+    var tracery = {};
+    var extend = require('extend')
+    extend(tracery, traceryUtilities);
 
     tracery.createGrammar = function(obj) {
         var grammar = new Grammar();
@@ -17,9 +20,6 @@ var tracery = {};
         return grammar;
     };
 
-    tracery.addError = function(error) {
-        console.warn(error);
-    };
 
     tracery.test = function() {
 

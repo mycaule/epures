@@ -1,6 +1,4 @@
-require.config({
 
-});
 
 require(["./traceryCore"], function(_tracery) {
     'use strict';
