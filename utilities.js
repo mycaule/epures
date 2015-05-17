@@ -39,7 +39,7 @@ define([], function() {
             if (start !== end) {
                 var section = tag.substring(start, end);
                 if (!inPre) {
-                    tracery.addError("multiple possible expansion symbols in tag!" + tag);
+                    addError("multiple possible expansion symbols in tag!" + tag);
                 } else {
                     inPre = false;
                     var split = section.split(".");
@@ -86,13 +86,13 @@ define([], function() {
 
         if (lvl > 0) {
             var error = "Too many '[' in rule " + inQuotes(rule);
-            tracery.addError(error);
+            addError(error);
             return;
         }
 
         if (lvl < 0) {
             var error = "Too many ']' in rule " + inQuotes(rule);
-            tracery.addError(error);
+            addError(error);
             return;
         }
 
@@ -109,7 +109,7 @@ define([], function() {
     function parseRule(rule) {
         var sections = [];
         if (!( typeof rule == 'string' || rule instanceof String)) {
-            tracery.addError("Cannot parse non-string rule " + rule);
+            addError("Cannot parse non-string rule " + rule);
             return;
         }
 
@@ -158,21 +158,21 @@ define([], function() {
 
         if (lvl > 0) {
             var error = "Too many '[' in rule " + inQuotes(rule);
-            tracery.addError(error);
+            addError(error);
             console.warn(error);
             return;
         }
 
         if (lvl < 0) {
             var error = "Too many ']' in rule " + inQuotes(rule);
-            tracery.addError(error);
+            addError(error);
             console.warn(error);
             return;
         }
 
         if (inTag) {
             var error = "Odd number of '#' in rule " + inQuotes(rule);
-            tracery.addError(error);
+            addError(error);
             console.warn(error);
             return;
         }
