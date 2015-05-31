@@ -9,7 +9,7 @@ define([], function() {
 
 
     function addError(error) {
-        console.warn(error);
+        console.log(error);
     };
 
     function inQuotes(s) {
