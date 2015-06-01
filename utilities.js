@@ -159,21 +159,18 @@ define([], function() {
         if (lvl > 0) {
             var error = "Too many '[' in rule " + inQuotes(rule);
             addError(error);
-            console.warn(error);
             return;
         }
 
         if (lvl < 0) {
             var error = "Too many ']' in rule " + inQuotes(rule);
             addError(error);
-            console.warn(error);
             return;
         }
 
         if (inTag) {
             var error = "Odd number of '#' in rule " + inQuotes(rule);
             addError(error);
-            console.warn(error);
             return;
         }
 
