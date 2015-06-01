@@ -746,7 +746,7 @@ var TagNode = ExpansionNode.extend({
         }
 
         this.setParent(parent);
-        $.extend(this, parsedTag);
+        extend(this, parsedTag);
     },
 
     expand : function() {
@@ -1216,3 +1216,5 @@ tracery.test = function() {
 };
  
 })();
+
+module.exports = tracery;
