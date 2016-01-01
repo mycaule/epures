@@ -99,7 +99,6 @@ var tracery = function() {
                 // Create all the preactions from the raw syntax
                 if (parsed.preactions.length > 0) {
                     this.preactions = [];
-                    console.log(parsed.preactions);
                     for (var i = 0; i < parsed.preactions.length; i++) {
                         this.preactions[i] = new NodeAction(this, parsed.preactions[i].raw);
                     }
@@ -198,7 +197,6 @@ var tracery = function() {
             this.ruleText = this.ruleNode.finishedText;
 
             grammar.pushRules(this.target, this.ruleText, this);
-            console.log("Push rules:" + this.target + " " + this.ruleText);
             break;
         case 1:
             break;
