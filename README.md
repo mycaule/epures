@@ -5,10 +5,10 @@ This is my attempt to package up [Tracery](https://github.com/galaxykate/tracery
 
 ## Installation
 
-This is not hosted on [npmjs.org](http://npmjs.org) but you can install any node module directly from a Github repository using npm on the command line:
+This is hosted at npm, so it can be installed like so:
 
 ```bash
-$ npm install v21/tracery --save
+$ npm install tracery-grammar --save
 ```
 
 ## Example usage
