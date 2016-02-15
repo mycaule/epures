@@ -22,6 +22,8 @@ var grammar = tracery.createGrammar({
   'origin':['I am #emotion.a# #animal#.'],
 });
 
+grammar.addModifiers(tracery.baseEngModifiers); 
+
 console.log(grammar.flatten('#origin#'));
 ```
 
