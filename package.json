@@ -3,6 +3,11 @@
   "version": "2.7.2",
   "description": "npm package for Kate Compton's tracery",
   "main": "tracery.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/v21/tracery.git"
+},
+  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
