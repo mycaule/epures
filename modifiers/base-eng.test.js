@@ -2,30 +2,30 @@ import {test} from 'ava'
 
 const eng = require('./base-eng')
 
-test('replace stuff', t => {
+test('replace', t => {
   t.true(typeof eng.replace === 'function')
 })
 
-test('capitalizeAll stuff', t => {
+test('capitalizeAll', t => {
   t.true(typeof eng.capitalizeAll === 'function')
 })
 
-test('capitalize stuff', t => {
+test('capitalize', t => {
   t.true(typeof eng.capitalize === 'function')
 })
 
-test('replace a preposition', t => {
+test('modifier -a-', t => {
   t.true(typeof eng.a === 'function')
 })
 
-test('replace firstS', t => {
+test('modifier -firstS-', t => {
   t.true(typeof eng.firstS === 'function')
 })
 
-test('replace plurals', t => {
+test('modifier -s-', t => {
   t.true(typeof eng.s === 'function')
 })
 
-test('replace ed termination', t => {
+test('modifier -ed-', t => {
   t.true(typeof eng.ed === 'function')
 })

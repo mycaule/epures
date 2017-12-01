@@ -1,13 +1,23 @@
-import {test, skip} from 'ava'
+import test from 'ava'
 
-const ruleset = require('./rule-set')
+const RuleSet = require('./rule-set')
 
-test('test 1', t => {
-  console.log(ruleset)
-  t.true(true)
+let rul
+
+test.before(t => {
+  rul = new RuleSet()
+  t.true(
+    (rul.constructor.name === 'RuleSet') &&
+    ('raw' in rul) &&
+    ('grammar' in rul) &&
+    ('falloff' in rul)
+  )
 })
 
-skip('test 2', t => {
-  console.log(ruleset)
-  t.true(true)
+test('selectRule', t => {
+  t.true(typeof rul.selectRule === 'function')
+})
+
+test('clearState', t => {
+  t.true(typeof rul.clearState === 'function')
 })

@@ -8,7 +8,8 @@ const isAlphaNum = c => {
 }
 
 const escapeRegExp = str => {
-  return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, '\\$1')
+  // Return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, '\\$1')
+  return str.replace(/([.*+?^=!:${}()|[\]/\\])/g, '\\$1')
 }
 
 const baseEngModifiers = {
@@ -24,11 +25,11 @@ const baseEngModifiers = {
       if (!isAlphaNum(s.charAt(i))) {
         capNext = true
         s2 += s.charAt(i)
-      } else if (!capNext) {
-        s2 += s.charAt(i)
-      } else {
+      } else if (capNext) {
         s2 += s.charAt(i).toUpperCase()
         capNext = false
+      } else {
+        s2 += s.charAt(i)
       }
     }
     return s2
