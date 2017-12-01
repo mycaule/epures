@@ -1,20 +1,14 @@
-let epures = (() => {
-  const Grammar = require('./utils/grammar')
+const Grammar = require('./utils/grammar')
 
-    // Parses a plaintext rule in the epures syntax
-  epures = {
-    createGrammar(raw) {
-      return new Grammar(raw)
-    }
+const epures = (() => {
+  return {
+    createGrammar: raw => new Grammar(raw),
+    baseEngModifiers: require('./modifiers/base-eng'),
+    EpuresNode: require('./utils/epure'),
+    Grammar: require('./utils/grammar'),
+    Symbol: require('./utils/symbol'),
+    RuleSet: require('./utils/rule-set')
   }
-
-  epures.baseEngModifiers = require('./modifiers/base-eng')
-  epures.EpuresNode = require('./utils/epure')
-  epures.Grammar = require('./utils/grammar')
-  epures.Symbol = require('./utils/symbol')
-  epures.RuleSet = require('./utils/rule-set')
-
-  return epures
 })()
 
 module.exports = epures

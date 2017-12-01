@@ -1,5 +1,5 @@
 const Symbol = require('./symbol')
-const EpuresNode = require('./epures-node')
+const EpuresNode = require('./epure')
 
 class Grammar {
   constructor(raw) {
