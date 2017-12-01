@@ -1,12 +1,12 @@
 # epures
-Epures: a Modern JS story-grammar generation library
+
+A story grammar generation library written in Modern JS
 
 ## Interesting reading
 
-* [Kate Compton](http://www.crystalcodepalace.com/traceryTut.html)
-* [Source code from the tracery2 branch](https://github.com/galaxykate/tracery/tree/tracery2/js/tracery)
+* [Kate Compton - Tracery tutorial](http://www.crystalcodepalace.com/traceryTut.html), check also the [original source code](https://github.com/galaxykate/tracery/tree/tracery2/js/tracery)
 * [Nicole He - Voice Technology is an Opportunity to Make Weird Stuff](https://medium.com/@nicolehe/voice-technology-is-an-opportunity-to-make-weird-stuff-d4296ce7448a)
-* [NaturalNode - natural](https://github.com/NaturalNode/natural)
+* [Chris Umbel - Natural library](https://github.com/NaturalNode/natural)
 * [Steve Worswick - Mitsuku chatbot](http://www.mitsuku.com)
 
 ## History

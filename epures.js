@@ -642,7 +642,7 @@ let epures = (() => {
               break
 
             // Hashtag
-            //   ignore if not at depth 0, that means we are in a bracket
+            // ignore if not at depth 0, that means we are in a bracket
             case '#':
               if (depth === 0) {
                 if (inTag) {
@@ -683,8 +683,7 @@ let epures = (() => {
         errors.push('Too many ]')
       }
 
-            // Strip out empty plaintext sections
-
+      // Strip out empty plaintext sections
       sections = sections.filter(section => {
         if (section.type === 0 && section.raw.length === 0) {
           return false
