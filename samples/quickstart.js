@@ -9,6 +9,8 @@ const grammar = epures.createGrammar({
 grammar.addModifiers(epures.baseEngModifiers)
 
 console.log(grammar.flatten('#origin#'))
+console.log(grammar.flatten('#origin#'))
+console.log(grammar.flatten('#origin#'))
 
 // I am a happy iguana.
 // I am an angry fox.

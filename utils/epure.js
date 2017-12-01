@@ -192,18 +192,14 @@ class EpuresNode {
           }
 
           // Make undo actions for all preactions (pops for each push)
-          for (const pa in this.preactions) {
-            if (pa && pa.type === 0) {
+          this.preactions.forEach(pa => {
+            if (pa.type === 0) {
               this.postactions.push(pa.createUndo())
             }
-          }
+          })
 
           // Activate all the preactions
-          for (const pa in this.preactions) {
-            if (pa) {
-              pa.activate()
-            }
-          }
+          this.preactions.forEach(pa => pa.activate())
 
           this.finishedText = this.raw
 
@@ -213,37 +209,31 @@ class EpuresNode {
           this.expandChildren(selectedRule, preventRecursion)
 
           // Apply modifiers
-          for (let modName in this.modifiers) {
-            if (modName) {
-              let modParams = []
-              if (modName.indexOf('(') > 0) {
-                const regExp = /\(([^)]+)\)/
+          this.modifiers.forEach(modName => {
+            let modParams = []
+            if (modName.indexOf('(') > 0) {
+              const regExp = /\(([^)]+)\)/
 
-                const results = regExp.exec(modName)
-                if (results && results.length >= 2) {
-                  modParams = results[1].split(',')
-                  modName = modName.substring(0, modName.indexOf('('))
-                }
-              }
-
-              const mod = this.grammar.modifiers[modName]
-
-              // Missing modifier?
-              if (mod) {
-                this.finishedText = mod(this.finishedText, modParams)
-              } else {
-                this.errors.push('Missing modifier ' + modName)
-                this.finishedText += '((.' + modName + '))'
+              const results = regExp.exec(modName)
+              if (results && results.length >= 2) {
+                modParams = results[1].split(',')
+                modName = modName.substring(0, modName.indexOf('('))
               }
             }
-          }
+
+            const mod = this.grammar.modifiers[modName]
+
+            // Missing modifier?
+            if (mod) {
+              this.finishedText = mod(this.finishedText, modParams)
+            } else {
+              this.errors.push('Missing modifier ' + modName)
+              this.finishedText += '((.' + modName + '))'
+            }
+          })
 
           // Perform post-actions
-          for (const pa in this.postactions) {
-            if (pa) {
-              pa.activate()
-            }
-          }
+          this.postactions.forEach(pa => pa.activate())
           break
         }
         case 2:
