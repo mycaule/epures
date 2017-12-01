@@ -49,6 +49,12 @@ console.log(grammar.flatten('#origin#'))
 // I am a sad capybara.
 ```
 
+See [the samples folder](/samples) for more code samples.
+
+```
+node samples/quickstart.js
+```
+
 ### Publishing on NPM
 ```
 npm version [patch, minor, major]

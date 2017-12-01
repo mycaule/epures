@@ -1,4 +1,4 @@
-import {test} from 'ava'
+import test from 'ava'
 
 const eng = require('./base-eng')
 

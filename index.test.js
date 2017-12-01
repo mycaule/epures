@@ -1,6 +1,6 @@
 import test from 'ava'
 
-const Epures = require('./epures')
+const Epures = require('./index')
 
 test('createGrammar', t => {
   t.true(typeof Epures.createGrammar === 'function')
