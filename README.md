@@ -49,6 +49,12 @@ console.log(grammar.flatten('#origin#'))
 // I am a sad capybara.
 ```
 
+### Publishing on NPM
+```
+npm version [patch, minor, major]
+npm publish
+```
+
 ## References
 
 * [Kate Compton - Tracery tutorial](http://www.crystalcodepalace.com/traceryTut.html), check also the [original source code](https://github.com/galaxykate/tracery/tree/tracery2/js/tracery)
