@@ -1,6 +1,6 @@
 {
   "name": "epures",
-  "version": "2.9.1",
+  "version": "2.9.2",
   "description": "Story grammar generation in JavaScript",
   "main": "epures.js",
   "repository": {

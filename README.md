@@ -1,4 +1,12 @@
-# epures
+<h1 align="center">
+	<br>
+	<img width="400" src="https://www.staedtler.fr/fr/mandala-creator/assets/elements/jess_meleragni_7.svg" alt="Epures">
+	<br>
+	<br>
+	<br>
+</h1>
+
+> Story grammar generation
 
 A story grammar generation library written in *Modern JS*. This library is a rewrite of the client-side library [tracery](https://github.com/galaxykate/tracery).
 
