@@ -1,16 +1,26 @@
 {
   "name": "epures",
   "version": "2.7.2",
-  "description": "npm package for Kate Compton's tracery",
+  "description": "Story grammar generation in JavaScript",
   "main": "epures.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/mycaule/epures.git"
-},
-
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "xo && ava --verbose"
   },
   "author": "Michel Hua",
-  "license": "Apache 2.0"
+  "license": "Apache 2.0",
+  "devDependencies": {
+    "ava": "^0.24.0",
+    "xo": "^0.18.2"
+  },
+  "xo": {
+    "space": true,
+    "semicolon": false
+  },
+  "ava": {
+    "snapshotDir": "snapshots"
+  }
 }
