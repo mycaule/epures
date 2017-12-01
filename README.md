@@ -1,13 +1,6 @@
 # epures
 
-A story grammar generation library written in Modern JS
-
-## Interesting reading
-
-* [Kate Compton - Tracery tutorial](http://www.crystalcodepalace.com/traceryTut.html), check also the [original source code](https://github.com/galaxykate/tracery/tree/tracery2/js/tracery)
-* [Nicole He - Voice Technology is an Opportunity to Make Weird Stuff](https://medium.com/@nicolehe/voice-technology-is-an-opportunity-to-make-weird-stuff-d4296ce7448a)
-* [Chris Umbel - Natural library](https://github.com/NaturalNode/natural)
-* [Steve Worswick - Mitsuku chatbot](http://www.mitsuku.com)
+A story grammar generation library written in *Modern JS*.
 
 ## History
 
@@ -19,13 +12,14 @@ I use [Node.js v6.11.5](https://cloud.google.com/functions/docs/writing) to supp
 
 #### Roadmap
 
-- [ ] Merge existing unit tests ([test1](https://github.com/galaxykate/tracery/blob/tracery2/js/test.js) [test2](https://github.com/galaxykate/tracery/blob/tracery2/js/test2.js))
-- [ ] Add Unit tests (use [xo](https://github.com/sindresorhus/xo), [ava](https://github.com/avajs/ava) packages and [Modern JS](https://github.com/mbeaudru/modern-js-cheatsheet))
+- [x] Fix the build (use [xo](https://github.com/sindresorhus/xo), [ava](https://github.com/avajs/ava) packages and [Modern JS](https://github.com/mbeaudru/modern-js-cheatsheet))
+- [ ] Merge existing unit tests ([test1](https://github.com/galaxykate/tracery/blob/tracery2/js/test.js), [test2](https://github.com/galaxykate/tracery/blob/tracery2/js/test2.js))
+- [ ] Webpack support for client-side code.
 - [ ] Add support for more languages (notably French, German and Spanish)
 - [ ] Add support for command line usage
 - [ ] Add support for [Dialogflow](https://dialogflow.com) import formats
 
-## Installation
+## Setup
 
 ```bash
 $ npm install epures --save
@@ -50,3 +44,10 @@ console.log(grammar.flatten('#origin#'))
 // I am an angry fox.
 // I am a sad capybara.
 ```
+
+## References
+
+* [Kate Compton - Tracery tutorial](http://www.crystalcodepalace.com/traceryTut.html), check also the [original source code](https://github.com/galaxykate/tracery/tree/tracery2/js/tracery)
+* [Nicole He - Voice Technology is an Opportunity to Make Weird Stuff](https://medium.com/@nicolehe/voice-technology-is-an-opportunity-to-make-weird-stuff-d4296ce7448a)
+* [Chris Umbel - Natural library](https://github.com/NaturalNode/natural)
+* [Steve Worswick - Mitsuku chatbot](http://www.mitsuku.com)
