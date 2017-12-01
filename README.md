@@ -1,22 +1,26 @@
 # epures
 
-A story grammar generation library written in *Modern JS*.
+A story grammar generation library written in *Modern JS*. This library is a rewrite of the client-side library [tracery](https://github.com/galaxykate/tracery).
+
+[![NPM](https://nodei.co/npm/epures.png)](https://nodei.co/npm/epures/)
+
+Please note that work is still in progress.
 
 ## History
 
-This is a 2018 update of Kate and George work on a [grammar generation library](https://github.com/v21/tracery) published two years ago. Since then it is unmaintained, but new opportunities in the chatbot area make it interesting again.
+This is a 2018 update of Kate and George work on the [tracery](https://github.com/v21/tracery) grammar generation library published two years ago. Since then it is unmaintained, but new opportunities in the chatbot area make it interesting again.
 
-Furthermore ModernJS techniques can now simplify the code.
+Furthermore *Modern JS* techniques can now simplify the code.
 
 I use [Node.js v6.11.5](https://cloud.google.com/functions/docs/writing) to support common [Actions on Google](https://developers.google.com/actions/) usecases with [Dialogflow](https://dialogflow.com).
 
-#### Roadmap
+## Roadmap
 
 - [x] Fix the build (use [xo](https://github.com/sindresorhus/xo), [ava](https://github.com/avajs/ava) packages and [Modern JS](https://github.com/mbeaudru/modern-js-cheatsheet))
 - [ ] Merge existing unit tests ([test1](https://github.com/galaxykate/tracery/blob/tracery2/js/test.js), [test2](https://github.com/galaxykate/tracery/blob/tracery2/js/test2.js))
-- [ ] Webpack support for client-side code.
+- [ ] [Webpack](https://webpack.js.org) support for client-side code.
 - [ ] Add support for more languages (notably French, German and Spanish)
-- [ ] Add support for command line usage
+- [ ] Add support for [command line usage](https://github.com/mattallty/Caporal.js)
 - [ ] Add support for [Dialogflow](https://dialogflow.com) import formats
 
 ## Setup
@@ -36,7 +40,7 @@ var grammar = epures.createGrammar({
   'origin':['I am #emotion.a# #animal#.'],
 })
 
-grammar.addModifiers(tracery.baseEngModifiers)
+grammar.addModifiers(epures.baseEngModifiers)
 
 console.log(grammar.flatten('#origin#'))
 
