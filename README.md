@@ -8,6 +8,8 @@ A story grammar generation library written in *Modern JS*. This library is a rew
 
 [![NPM](https://nodei.co/npm/epures.png)](https://nodei.co/npm/epures/)
 
+The library name comes from the french word *épures*, which is a pun on the word *tracery*.
+
 ## History
 
 This is a 2018 update of Kate and George work on the [tracery](https://github.com/v21/tracery) grammar generation library published two years ago. Since then it is unmaintained, but new opportunities in the chatbot area make it interesting again.
