@@ -61,6 +61,8 @@ node samples/quickstart.js
 
 ### Contributions
 
+[Changes and improvements](https://github.com/mycaule/epures/wiki) are more than welcome! Feel free to fork and open a pull request. Please make your changes in a specific branch and request to pull into `master`!
+
 #### Running the tests
 
 ```
@@ -72,6 +74,9 @@ npm test
 npm version [patch, minor, major]
 npm publish
 ```
+
+#### License
+epures is licensed under the [Apache 2.0 License.](https://github.com/mycaule/epures/blob/master/LICENSE)
 
 ## References
 
