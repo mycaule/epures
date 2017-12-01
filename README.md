@@ -1,36 +1,45 @@
-# tracery
-Tracery: a story-grammar generation library for javascript
+# epures
+Epures: a Modern JS story-grammar generation library
 
-This is my attempt to package up [Tracery](https://github.com/galaxykate/tracery/) as a Node library.
+## Reading
+
+* [Galaxy Kate](http://www.crystalcodepalace.com/traceryTut.html)
+* [Source code from the tracery2 branch](https://github.com/galaxykate/tracery/tree/tracery2/js/tracery)
+* [Nicole He - Voice Technology is an Opportunity to Make Weird Stuff](https://medium.com/@nicolehe/voice-technology-is-an-opportunity-to-make-weird-stuff-d4296ce7448a)
+* [NaturalNode - natural](https://github.com/NaturalNode/natural)
+
+## History
+
+This is a 2018 update of Kate and George work on a [grammar generation library](https://github.com/v21/tracery) published two years ago. Since then it is unmaintained, but new opportunities in the chatbot area make it interesting again.
+
+Furthermore [Modern JS](https://github.com/mbeaudru/modern-js-cheatsheet) capabilities can now simplify the code.
+
+#### To Do List
+- [ ] Add Unit tests (Use [xo](https://github.com/sindresorhus/xo) and [ava](https://github.com/avajs/ava) packages)
+- [ ] Add support Misses unit tests and support for more languages.
 
 ## Installation
 
-This is hosted at npm, so it can be installed like so:
-
 ```bash
-$ npm install tracery-grammar --save
+$ npm install epures --save
 ```
 
-## Example usage
+##  Usage
 
 ```javascript
-var tracery = require('tracery-grammar');
+var epures = require('epures')
 
-var grammar = tracery.createGrammar({
+var grammar = epures.createGrammar({
   'animal': ['panda','fox','capybara','iguana'],
   'emotion': ['sad','happy','angry','jealous'],
   'origin':['I am #emotion.a# #animal#.'],
-});
+})
 
-grammar.addModifiers(tracery.baseEngModifiers); 
+grammar.addModifiers(tracery.baseEngModifiers)
 
-console.log(grammar.flatten('#origin#'));
-```
+console.log(grammar.flatten('#origin#'))
 
-Sample output:
-
-```plaintext
-I am a happy iguana.
-I am an angry fox.
-I am a sad capybara.
+// I am a happy iguana.
+// I am an angry fox.
+// I am a sad capybara.
 ```
