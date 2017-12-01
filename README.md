@@ -14,9 +14,12 @@ This is a 2018 update of Kate and George work on a [grammar generation library](
 
 Furthermore [Modern JS](https://github.com/mbeaudru/modern-js-cheatsheet) capabilities can now simplify the code.
 
-#### To Do List
+#### Roadmap
+
 - [ ] Add Unit tests (Use [xo](https://github.com/sindresorhus/xo) and [ava](https://github.com/avajs/ava) packages)
-- [ ] Add support Misses unit tests and support for more languages.
+- [ ] Add support Misses unit tests and support for more languages (notably French)
+- [ ] Add support for command line Usage
+- [ ] Add support for [Dialogflowhttps://dialogflow.com import formats
 
 ## Installation
 
