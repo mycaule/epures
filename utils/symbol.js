@@ -1,111 +1,54 @@
-const Grammar = raw => {
-  this.modifiers = {}
-  this.loadFromRawObj(raw)
+const RuleSet = require('./rule-set')
+
+const Symbol = function (grammar, key, rawRules) {
+  // Symbols can be made with a single value, and array, or array of objects of (conditions/values)
+  this.key = key
+  this.grammar = grammar
+  this.rawRules = rawRules
+
+  this.baseRules = new RuleSet(this.grammar, rawRules)
+  this.clearState()
 }
 
-Grammar.prototype.clearState = () => {
-  const keys = Object.keys(this.symbols)
-  for (let i = 0; i < keys.length; i++) {
-    this.symbols[keys[i]].clearState()
-  }
+Symbol.prototype.clearState = function () {
+  // Clear the stack and clear all ruleset usages
+  this.stack = [this.baseRules]
+
+  this.uses = []
+  this.baseRules.clearState()
 }
 
-Grammar.prototype.addModifiers = mods => {
-  // Copy over the base modifiers
-  for (const key in mods) {
-    if (mods.hasOwnProperty(key)) {
-      this.modifiers[key] = mods[key]
-    }
-  }
+Symbol.prototype.pushRules = function (rawRules) {
+  const rules = new RuleSet(this.grammar, rawRules)
+  this.stack.push(rules)
 }
 
-Grammar.prototype.loadFromRawObj = raw => {
-  this.raw = raw
-  this.symbols = {}
-  this.subgrammars = []
-
-  if (this.raw) {
-    // Add all rules to the grammar
-    for (const key in this.raw) {
-      if (this.raw.hasOwnProperty(key)) {
-        this.symbols[key] = new Symbol(this, key, this.raw[key])
-      }
-    }
-  }
+Symbol.prototype.popRules = function () {
+  this.stack.pop()
 }
 
-Grammar.prototype.createRoot = rule => {
-  // Create a node and subnodes
-  const root = new EpuresNode(this, 0, {
-    type: -1,
-    raw: rule
+Symbol.prototype.selectRule = function (node, errors) {
+  this.uses.push({
+    node
   })
 
-  return root
-}
-
-Grammar.prototype.expand = (rule, allowEscapeChars) => {
-  const root = this.createRoot(rule)
-  root.expand()
-  if (!allowEscapeChars) {
-    root.clearEscapeChars()
+  if (this.stack.length === 0) {
+    errors.push('The rule stack for \'' + this.key + '\' is empty, too many pops?')
+    return '((' + this.key + '))'
   }
 
-  return root
+  return this.stack[this.stack.length - 1].selectRule()
 }
 
-Grammar.prototype.flatten = (rule, allowEscapeChars) => {
-  const root = this.expand(rule, allowEscapeChars)
-
-  return root.finishedText
-}
-
-Grammar.prototype.toJSON = () => {
-  const keys = Object.keys(this.symbols)
-  const symbolJSON = []
-  for (let i = 0; i < keys.length; i++) {
-    const key = keys[i]
-    symbolJSON.push(' "' + key + '" : ' + this.symbols[key].rulesToJSON())
+Symbol.prototype.getActiveRules = function () {
+  if (this.stack.length === 0) {
+    return null
   }
-  return '{\n' + symbolJSON.join(',\n') + '\n}'
+  return this.stack[this.stack.length - 1].selectRule()
 }
 
-  // Create or push rules
-Grammar.prototype.pushRules = (key, rawRules, sourceAction) => {
-  if (this.symbols[key] === undefined) {
-    this.symbols[key] = new Symbol(this, key, rawRules)
-    if (sourceAction) {
-      this.symbols[key].isDynamic = true
-    }
-  } else {
-    this.symbols[key].pushRules(rawRules)
-  }
+Symbol.prototype.rulesToJSON = function () {
+  return JSON.stringify(this.rawRules)
 }
 
-Grammar.prototype.popRules = key => {
-  if (!this.symbols[key]) {
-    this.errors.push('Can\'t pop: no symbol for key ' + key)
-  }
-  this.symbols[key].popRules()
-}
-
-Grammar.prototype.selectRule = (key, node, errors) => {
-  if (this.symbols[key]) {
-    const rule = this.symbols[key].selectRule(node, errors)
-
-    return rule
-  }
-
-  // Failover to alternative subgrammars
-  for (let i = 0; i < this.subgrammars.length; i++) {
-    if (this.subgrammars[i].symbols[key]) {
-      return this.subgrammars[i].symbols[key].selectRule()
-    }
-  }
-
-  // No symbol
-  errors.push('No symbol for \'' + key + '\'')
-  return '((' + key + '))'
-}
-
-module.exports = Grammar
+module.exports = Symbol
