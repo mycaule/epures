@@ -40,6 +40,8 @@ const baseEngModifiers = {
   },
 
   a(s) {
+    // Beware that this only covers some most common cases
+    // https://english.stackexchange.com/questions/152/when-should-i-use-a-vs-an
     if (s.length > 0) {
       if (s.charAt(0).toLowerCase() === 'u') {
         if (s.length > 2) {
@@ -58,11 +60,9 @@ const baseEngModifiers = {
   },
 
   firstS(s) {
-    console.log(s)
     const s2 = s.split(' ')
 
     const finished = baseEngModifiers.s(s2[0]) + ' ' + s2.slice(1).join(' ')
-    console.log(finished)
     return finished
   },
 
@@ -83,6 +83,7 @@ const baseEngModifiers = {
         return s + 's'
     }
   },
+
   ed(s) {
     switch (s.charAt(s.length - 1)) {
       case 's':

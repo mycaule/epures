@@ -35,6 +35,11 @@ $ npm install epures --save
 
 ##  Usage
 
+See [the samples folder](/samples) for more code samples.
+
+```
+$ node samples/quickstart.js
+```
 ```javascript
 var epures = require('epures')
 
@@ -51,12 +56,6 @@ console.log(grammar.flatten('#origin#'))
 // I am a happy iguana.
 // I am an angry fox.
 // I am a sad capybara.
-```
-
-See [the samples folder](/samples) for more code samples.
-
-```
-node samples/quickstart.js
 ```
 
 ### Contributions
@@ -76,7 +75,7 @@ npm publish
 ```
 
 #### License
-epures is licensed under the [Apache 2.0 License.](https://github.com/mycaule/epures/blob/master/LICENSE)
+`epures` is licensed under the [Apache 2.0 License.](https://github.com/mycaule/epures/blob/master/LICENSE)
 
 ## References
 
