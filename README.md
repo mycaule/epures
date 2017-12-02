@@ -1,22 +1,25 @@
-<h1 align="center">
-	<img width="400" src="https://www.staedtler.fr/fr/mandala-creator/assets/elements/jess_meleragni_7.svg" alt="Epures">
-</h1>
+<p align="center">
+	<img width="250" src="https://www.staedtler.fr/fr/mandala-creator/assets/elements/jess_meleragni_7.svg" alt="Epures">
+</p>
+<p align="center">
+  Story grammar generation
+</p>
 
-> Story grammar generation
+<p align="center">
+  <a href="http://travis-ci.org/mycaule/epures"><img src="https://api.travis-ci.org/mycaule/epures.svg?branch=master" alt="Build Status"></a>
+  <a href="https://david-dm.org/epures/epures"><img src="https://david-dm.org/epures/epures/status.svg" alt="dependencies Status"></a>
+  <a href="https://david-dm.org/epures/epures?type=dev"><img src="https://david-dm.org/epures/epures/dev-status.svg" alt="devDependencies Status"></a>
+	<br>
+	<br>
+</p>
 
-A story grammar generation library written in ES6. This library is a rewrite of the client-side library [tracery](https://github.com/galaxykate/tracery).
-
-[![Build Status](https://travis-ci.org/mycaule/epures.svg?branch=master)](https://travis-ci.org/mycaule/epures)
-
-[![NPM](https://nodei.co/npm/epures.png)](https://nodei.co/npm/epures/)
-
-The library name comes from the french word *épures*, which is a pun on the word *tracery*.
+A story grammar generation library written in ES6. This is a rewrite of the client-side library [tracery](https://github.com/galaxykate/tracery).
 
 ## History
 
 This is a 2018 update of Kate and George work on the [tracery](https://github.com/v21/tracery) grammar generation library published two years ago. Since then it is unmaintained, but new opportunities in the chatbot area make it interesting for server side usage.
 
-This library must be used with Node.js 6 Boron, at least:
+This library must be used with *Node.js 6 Boron*, or above:
 * this LTS version will be active until April 2018, see [LTS Schedule](https://github.com/nodejs/Release#release-schedule),
 * if you stick to that version, it will also allow you to use it with [Cloud Functions](https://cloud.google.com/functions/docs/writing) for popular usecases with [Actions on Google](https://developers.google.com/actions/) and [Dialogflow](https://dialogflow.com).
 
@@ -24,6 +27,8 @@ This library must be used with Node.js 6 Boron, at least:
 
 - [x] Fix the build (use [xo](https://github.com/sindresorhus/xo), [ava](https://github.com/avajs/ava) packages and [Modern JS](https://github.com/mbeaudru/modern-js-cheatsheet))
 - [ ] Merge existing unit tests ([test1](https://github.com/galaxykate/tracery/blob/tracery2/js/test.js), [test2](https://github.com/galaxykate/tracery/blob/tracery2/js/test2.js))
+- [ ] Add tests for the [/utils](/utils) classes
+- [ ] Better documentation using [/samples](/samples)
 - [ ] [Webpack](https://webpack.js.org) support for client-side code.
 - [ ] Add support for more languages (notably French, German and Spanish)
 - [ ] Add support for [command line usage](https://github.com/mattallty/Caporal.js)
@@ -60,23 +65,25 @@ console.log(grammar.flatten('#origin#'))
 // I am a sad capybara.
 ```
 
-### Contributions
+## Contributions
 
 [Changes and improvements](https://github.com/mycaule/epures/wiki) are more than welcome! Feel free to fork and open a pull request. Please make your changes in a specific branch and request to pull into `master`!
 
-#### Running the tests
+### Running the tests
 
 ```
 npm test
 ```
 
-#### Publishing
+### Publishing
 ```
 npm version [patch, minor, major]
 npm publish
 ```
 
-#### License
+[![NPM](https://nodei.co/npm/epures.png)](https://nodei.co/npm/epures/)
+
+### License
 `epures` is licensed under the [Apache 2.0 License.](https://github.com/mycaule/epures/blob/master/LICENSE)
 
 ## References

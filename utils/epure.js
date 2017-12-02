@@ -1,3 +1,6 @@
+/* eslint no-use-before-define: "error" */
+/* eslint-env es6 */
+
 const Parser = require('./parser')
 
 // An action that occurs when a node is expanded
