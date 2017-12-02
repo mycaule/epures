@@ -6,6 +6,8 @@
 
 A story grammar generation library written in ES6. This library is a rewrite of the client-side library [tracery](https://github.com/galaxykate/tracery).
 
+[![Build Status](https://travis-ci.org/mycaule/epures.svg?branch=master)](https://travis-ci.org/mycaule/epures)
+
 [![NPM](https://nodei.co/npm/epures.png)](https://nodei.co/npm/epures/)
 
 The library name comes from the french word *épures*, which is a pun on the word *tracery*.
@@ -14,9 +16,9 @@ The library name comes from the french word *épures*, which is a pun on the wor
 
 This is a 2018 update of Kate and George work on the [tracery](https://github.com/v21/tracery) grammar generation library published two years ago. Since then it is unmaintained, but new opportunities in the chatbot area make it interesting for server side usage.
 
-This library is build using Node.js 6 Boron :
+This library must be used with Node.js 6 Boron, at least:
 * this LTS version will be active until April 2018, see [LTS Schedule](https://github.com/nodejs/Release#release-schedule),
-* it will also allow you to use it with [Cloud Functions](https://cloud.google.com/functions/docs/writing) for popular usecases with [Actions on Google](https://developers.google.com/actions/) and [Dialogflow](https://dialogflow.com).
+* if you stick to that version, it will also allow you to use it with [Cloud Functions](https://cloud.google.com/functions/docs/writing) for popular usecases with [Actions on Google](https://developers.google.com/actions/) and [Dialogflow](https://dialogflow.com).
 
 ## Roadmap
 
