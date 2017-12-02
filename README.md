@@ -4,7 +4,7 @@
 
 > Story grammar generation
 
-A story grammar generation library written in *Modern JS*. This library is a rewrite of the client-side library [tracery](https://github.com/galaxykate/tracery).
+A story grammar generation library written in ES6. This library is a rewrite of the client-side library [tracery](https://github.com/galaxykate/tracery).
 
 [![NPM](https://nodei.co/npm/epures.png)](https://nodei.co/npm/epures/)
 
@@ -12,11 +12,11 @@ The library name comes from the french word *épures*, which is a pun on the wor
 
 ## History
 
-This is a 2018 update of Kate and George work on the [tracery](https://github.com/v21/tracery) grammar generation library published two years ago. Since then it is unmaintained, but new opportunities in the chatbot area make it interesting again.
+This is a 2018 update of Kate and George work on the [tracery](https://github.com/v21/tracery) grammar generation library published two years ago. Since then it is unmaintained, but new opportunities in the chatbot area make it interesting for server side usage.
 
-Furthermore *Modern JS* techniques can now simplify the code.
-
-I use [Node.js v6.11.5](https://cloud.google.com/functions/docs/writing) to support common [Actions on Google](https://developers.google.com/actions/) usecases with [Dialogflow](https://dialogflow.com).
+This library is build using Node.js 6 Boron :
+* this LTS version will be active until April 2018, see [LTS Schedule](https://github.com/nodejs/Release#release-schedule),
+* it will also allow you to use it with [Cloud Functions](https://cloud.google.com/functions/docs/writing) for popular usecases with [Actions on Google](https://developers.google.com/actions/) and [Dialogflow](https://dialogflow.com).
 
 ## Roadmap
 
