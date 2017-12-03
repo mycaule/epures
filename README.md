@@ -56,7 +56,7 @@ console.log(grammar.flatten('#origin#'))
 
 ## Contributions
 
-[Changes and improvements](https://github.com/mycaule/epures/wiki) are more than welcome! Feel free to fork and open a pull request. Please make your changes in a specific branch and request to pull into `master`!
+[Changes and improvements](https://github.com/mycaule/epures/wiki) are welcome! Feel free to fork and open a pull request into `master`.
 
 ### Roadmap
 
@@ -65,7 +65,7 @@ console.log(grammar.flatten('#origin#'))
 - [ ] Add tests for the [/utils](/utils) classes
 - [ ] Better documentation using [/samples](/samples)
 - [ ] [Webpack](https://webpack.js.org) support for client-side code.
-- [ ] Add support for more languages (notably French, German and Spanish)
+- [ ] Add support for more languages (notably French, German and Spanish). See [faker.js](https://github.com/Marak/faker.js/tree/master/lib/locales) for file structure and samples.
 - [ ] Add support for [command line usage](https://github.com/mattallty/Caporal.js)
 - [ ] Add support for [Dialogflow](https://dialogflow.com) import formats
 
@@ -84,7 +84,7 @@ npm publish
 [![NPM](https://nodei.co/npm/epures.png)](https://nodei.co/npm/epures/)
 
 ### License
-`epures` is licensed under the [Apache 2.0 License.](https://github.com/mycaule/epures/blob/master/LICENSE)
+`epures` is licensed under the [Apache 2.0 License](https://github.com/mycaule/epures/blob/master/LICENSE).
 
 ## References
 

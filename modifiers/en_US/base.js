@@ -1,3 +1,5 @@
+const common = require('../common')
+
 const isVowel = c => {
   const c2 = c.toLowerCase()
   return (c2 === 'a') || (c2 === 'e') || (c2 === 'i') || (c2 === 'o') || (c2 === 'u')
@@ -12,7 +14,7 @@ const escapeRegExp = str => {
   return str.replace(/([.*+?^=!:${}()|[\]/\\])/g, '\\$1')
 }
 
-const baseEngModifiers = {
+const base = {
   replace(s, params) {
     // http://stackoverflow.com/questions/1144783/replacing-all-occurrences-of-a-string-in-javascript
     return s.replace(new RegExp(escapeRegExp(params[0]), 'g'), params[1])
@@ -62,7 +64,7 @@ const baseEngModifiers = {
   firstS(s) {
     const s2 = s.split(' ')
 
-    const finished = baseEngModifiers.s(s2[0]) + ' ' + s2.slice(1).join(' ')
+    const finished = base.s(s2[0]) + ' ' + s2.slice(1).join(' ')
     return finished
   },
 
@@ -105,4 +107,4 @@ const baseEngModifiers = {
   }
 }
 
-module.exports = baseEngModifiers
+module.exports = Object.assign({}, common, base)

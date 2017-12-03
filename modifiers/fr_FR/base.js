@@ -1,3 +1,5 @@
+const common = require('../common')
+
 const isAlphaNum = c => {
   return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9')
 }
@@ -7,7 +9,7 @@ const escapeRegExp = str => {
   return str.replace(/([.*+?^=!:${}()|[\]/\\])/g, '\\$1')
 }
 
-const baseFrenchModifiers = {
+const base = {
   replace(s, params) {
     // http://stackoverflow.com/questions/1144783/replacing-all-occurrences-of-a-string-in-javascript
     return s.replace(new RegExp(escapeRegExp(params[0]), 'g'), params[1])
@@ -35,4 +37,4 @@ const baseFrenchModifiers = {
   }
 }
 
-module.exports = baseFrenchModifiers
+module.exports = Object.assign({}, common, base)

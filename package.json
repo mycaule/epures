@@ -22,5 +22,8 @@
   },
   "ava": {
     "snapshotDir": "snapshots"
+  },
+  "dependencies": {
+    "voca": "^1.3.1"
   }
 }
