@@ -7,8 +7,8 @@
 
 <p align="center">
   <a href="http://travis-ci.org/mycaule/epures"><img src="https://api.travis-ci.org/mycaule/epures.svg?branch=master" alt="Build Status"></a>
-  <a href="https://david-dm.org/epures/epures"><img src="https://david-dm.org/epures/epures/status.svg" alt="dependencies Status"></a>
-  <a href="https://david-dm.org/epures/epures?type=dev"><img src="https://david-dm.org/epures/epures/dev-status.svg" alt="devDependencies Status"></a>
+  <a href="https://david-dm.org/mycaule/epures"><img src="https://david-dm.org/mycaule/epures/status.svg" alt="dependencies Status"></a>
+  <a href="https://david-dm.org/mycaule/epures?type=dev"><img src="https://david-dm.org/mycaule/epures/dev-status.svg" alt="devDependencies Status"></a>
 	<br>
 	<br>
 </p>
@@ -22,17 +22,6 @@ This is a 2018 update of Kate and George work on the [tracery](https://github.co
 This library must be used with *Node.js 6 Boron*, or above:
 * this LTS version will be active until April 2018, see [LTS Schedule](https://github.com/nodejs/Release#release-schedule),
 * if you stick to that version, it will also allow you to use it with [Cloud Functions](https://cloud.google.com/functions/docs/writing) for popular usecases with [Actions on Google](https://developers.google.com/actions/) and [Dialogflow](https://dialogflow.com).
-
-## Roadmap
-
-- [x] Fix the build (use [xo](https://github.com/sindresorhus/xo), [ava](https://github.com/avajs/ava) packages and [Modern JS](https://github.com/mbeaudru/modern-js-cheatsheet))
-- [ ] Merge existing unit tests ([test1](https://github.com/galaxykate/tracery/blob/tracery2/js/test.js), [test2](https://github.com/galaxykate/tracery/blob/tracery2/js/test2.js))
-- [ ] Add tests for the [/utils](/utils) classes
-- [ ] Better documentation using [/samples](/samples)
-- [ ] [Webpack](https://webpack.js.org) support for client-side code.
-- [ ] Add support for more languages (notably French, German and Spanish)
-- [ ] Add support for [command line usage](https://github.com/mattallty/Caporal.js)
-- [ ] Add support for [Dialogflow](https://dialogflow.com) import formats
 
 ## Setup
 
@@ -68,6 +57,17 @@ console.log(grammar.flatten('#origin#'))
 ## Contributions
 
 [Changes and improvements](https://github.com/mycaule/epures/wiki) are more than welcome! Feel free to fork and open a pull request. Please make your changes in a specific branch and request to pull into `master`!
+
+### Roadmap
+
+- [x] Fix the build (use [xo](https://github.com/sindresorhus/xo), [ava](https://github.com/avajs/ava) packages and [Modern JS](https://github.com/mbeaudru/modern-js-cheatsheet))
+- [ ] Merge existing unit tests ([test1](https://github.com/galaxykate/tracery/blob/tracery2/js/test.js), [test2](https://github.com/galaxykate/tracery/blob/tracery2/js/test2.js))
+- [ ] Add tests for the [/utils](/utils) classes
+- [ ] Better documentation using [/samples](/samples)
+- [ ] [Webpack](https://webpack.js.org) support for client-side code.
+- [ ] Add support for more languages (notably French, German and Spanish)
+- [ ] Add support for [command line usage](https://github.com/mattallty/Caporal.js)
+- [ ] Add support for [Dialogflow](https://dialogflow.com) import formats
 
 ### Running the tests
 
