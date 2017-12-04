@@ -21,3 +21,7 @@ test('selectRule', t => {
 test('clearState', t => {
   t.true(typeof rul.clearState === 'function')
 })
+
+test('setRng', t => {
+  t.true(typeof rul.setRng === 'function')
+})

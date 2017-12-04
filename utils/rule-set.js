@@ -6,11 +6,17 @@ class RuleSet {
     this.grammar = grammar
     this.falloff = 1
 
+    this.rng = Math.random
+
     if (Array.isArray(raw)) {
       this.defaultRules = raw
     } else if (typeof raw === 'string' || raw instanceof String) {
       this.defaultRules = [raw]
     }
+  }
+
+  setRng(newRng) {
+    this.rng = newRng
   }
 
   static fyshuffle(array) {
@@ -21,7 +27,7 @@ class RuleSet {
     // While there remain elements to shuffle...
     while (currentIndex !== 0) {
       // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex)
+      randomIndex = Math.floor(this.rng() * currentIndex)
       currentIndex -= 1
 
       // And swap it with the current element.
@@ -87,8 +93,7 @@ class RuleSet {
           errors.push('Falloff distribution not yet implemented')
           break
         default:
-
-          index = Math.floor(Math.pow(Math.random(), this.falloff) * this.defaultRules.length)
+          index = Math.floor(Math.pow(this.rng(), this.falloff) * this.defaultRules.length)
           break
       }
 

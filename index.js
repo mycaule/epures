@@ -1,13 +1,16 @@
 const Grammar = require('./utils/grammar')
 
 const epures = (() => {
+  const ruleset = require('./utils/rule-set')
+
   return {
     createGrammar: raw => new Grammar(raw),
     baseEngModifiers: require('./modifiers/en_US/base'),
     EpuresNode: require('./utils/epure'),
     Grammar: require('./utils/grammar'),
     Symbol: require('./utils/symbol'),
-    RuleSet: require('./utils/rule-set')
+    RuleSet: ruleset,
+    setRng: rng => ruleset.setRng(rng)
   }
 })()
 

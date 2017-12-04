@@ -14,7 +14,7 @@
   <br>
 </p>
 
-A story grammar generation library written in ES6. This is a rewrite of the client-side library [tracery](https://github.com/galaxykate/tracery).
+A story grammar generation library written in ES6. This is a repackaging of the client-side library [tracery](https://github.com/galaxykate/tracery).
 
 ## History
 
@@ -32,7 +32,7 @@ $ npm install epures --save
 
 ##  Usage
 
-See [the samples folder](/samples) for more code samples.
+See [the samples folder](/samples) for more usecases.
 
 ### Running with Node.js
 ```bash
@@ -92,10 +92,11 @@ $ open /samples/quickstart.html
 ### Roadmap
 
 - [x] Fix the build (use [xo](https://github.com/sindresorhus/xo), [ava](https://github.com/avajs/ava) packages and [Modern JS](https://github.com/mbeaudru/modern-js-cheatsheet))
-- [ ] Merge existing unit tests ([test1](https://github.com/galaxykate/tracery/blob/tracery2/js/test.js), [test2](https://github.com/galaxykate/tracery/blob/tracery2/js/test2.js))
+- [x] [Webpack](https://webpack.js.org) support for client-side code.
+- [x] Merge existing unit tests ([test1](https://github.com/galaxykate/tracery/blob/tracery2/js/test.js), [test2](https://github.com/galaxykate/tracery/blob/tracery2/js/test2.js))
 - [ ] Add tests for the [/utils](/utils) classes
 - [ ] Better documentation using [/samples](/samples)
-- [x] [Webpack](https://webpack.js.org) support for client-side code.
+- [ ] Check why `UglifyJsPlugin` breaks the library
 - [ ] Add support for more languages (notably French, German and Spanish). See [faker.js](https://github.com/Marak/faker.js/tree/master/lib/locales) for file structure and samples.
 - [ ] Add support for [command line usage](https://github.com/mattallty/Caporal.js)
 - [ ] Add support for [Dialogflow](https://dialogflow.com) import formats
