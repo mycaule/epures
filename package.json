@@ -8,12 +8,15 @@
     "url": "git://github.com/mycaule/epures.git"
   },
   "scripts": {
-    "test": "xo && ava --verbose"
+    "test": "xo && ava --verbose",
+    "build": "webpack --config webpack.config.js"
   },
   "author": "Michel Hua",
   "license": "Apache-2.0",
   "devDependencies": {
     "ava": "^0.24.0",
+    "uglifyjs-webpack-plugin": "^1.1.2",
+    "webpack": "^3.9.1",
     "xo": "^0.19.0"
   },
   "xo": {

@@ -34,7 +34,8 @@ $ npm install epures --save
 
 See [the samples folder](/samples) for more code samples.
 
-```
+### Running with Node.js
+```bash
 $ node samples/quickstart.js
 ```
 ```javascript
@@ -55,6 +56,35 @@ console.log(grammar.flatten('#origin#'))
 // I am a sad capybara.
 ```
 
+### Running with the browser
+
+[A bundle library](/dist/epures.webpack.js) can be generated using [Webpack](https://webpack.js.org).
+
+```bash
+npm run build
+```
+```bash
+$ open /samples/quickstart.html
+```
+
+```html
+<script src="../dist/epures.webpack.js"></script>
+
+<script>
+  let grammar = epures.createGrammar({
+    animal: ['panda', 'fox', 'capybara', 'iguana'],
+    emotion: ['sad', 'happy', 'angry', 'jealous'],
+    origin: ['I am #emotion.a# #animal#.']
+  })
+
+  grammar.addModifiers(epures.baseEngModifiers)
+
+  console.log(grammar.flatten('#origin#'))
+  console.log(grammar.flatten('#origin#'))
+  console.log(grammar.flatten('#origin#'))
+</script>
+```
+
 ## Contributions
 
 [Changes and improvements](https://github.com/mycaule/epures/wiki) are welcome! Feel free to fork and open a pull request into `master`.
@@ -65,7 +95,7 @@ console.log(grammar.flatten('#origin#'))
 - [ ] Merge existing unit tests ([test1](https://github.com/galaxykate/tracery/blob/tracery2/js/test.js), [test2](https://github.com/galaxykate/tracery/blob/tracery2/js/test2.js))
 - [ ] Add tests for the [/utils](/utils) classes
 - [ ] Better documentation using [/samples](/samples)
-- [ ] [Webpack](https://webpack.js.org) support for client-side code.
+- [x] [Webpack](https://webpack.js.org) support for client-side code.
 - [ ] Add support for more languages (notably French, German and Spanish). See [faker.js](https://github.com/Marak/faker.js/tree/master/lib/locales) for file structure and samples.
 - [ ] Add support for [command line usage](https://github.com/mattallty/Caporal.js)
 - [ ] Add support for [Dialogflow](https://dialogflow.com) import formats
