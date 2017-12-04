@@ -3,10 +3,11 @@
     <title>Running from the browser</title>
   </head>
   <body>
+    <span class="myclass"></span>
     <script src="../dist/epures.webpack.js"></script>
 
     <script>
-      let grammar = epures.createGrammar({
+      const grammar = epures.createGrammar({
         animal: ['panda', 'fox', 'capybara', 'iguana'],
         emotion: ['sad', 'happy', 'angry', 'jealous'],
         origin: ['I am #emotion.a# #animal#.']
@@ -14,9 +15,10 @@
 
       grammar.addModifiers(epures.baseEngModifiers)
 
-      console.log(grammar.flatten('#origin#'))
-      console.log(grammar.flatten('#origin#'))
-      console.log(grammar.flatten('#origin#'))
+      document.querySelector(".myclass").innerHTML =
+        grammar.flatten('#origin#') + '</br>' +
+        grammar.flatten('#origin#') + '</br>' +
+        grammar.flatten('#origin#') + '</br>'
     </script>
   </body>
 </html>
