@@ -1,23 +1,3 @@
-const fyshuffle = array => {
-  let currentIndex = array.length
-  let temporaryValue
-  let randomIndex
-
-  // While there remain elements to shuffle...
-  while (currentIndex !== 0) {
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex)
-    currentIndex -= 1
-
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex]
-    array[currentIndex] = array[randomIndex]
-    array[randomIndex] = temporaryValue
-  }
-
-  return array
-}
-
 // Sets of rules
 // Can also contain conditional or fallback sets of rulesets)
 class RuleSet {
@@ -31,6 +11,26 @@ class RuleSet {
     } else if (typeof raw === 'string' || raw instanceof String) {
       this.defaultRules = [raw]
     }
+  }
+
+  static fyshuffle(array) {
+    let currentIndex = array.length
+    let temporaryValue
+    let randomIndex
+
+    // While there remain elements to shuffle...
+    while (currentIndex !== 0) {
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex)
+      currentIndex -= 1
+
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex]
+      array[currentIndex] = array[randomIndex]
+      array[randomIndex] = temporaryValue
+    }
+
+    return array
   }
 
   selectRule(errors) {
@@ -72,7 +72,7 @@ class RuleSet {
           // Create a shuffle desk
           if (!this.shuffledDeck || this.shuffledDeck.length === 0) {
             // Make an array
-            this.shuffledDeck = fyshuffle(Array.apply(null, {
+            this.shuffledDeck = this.fyshuffle(Array.apply(null, {
               length: this.defaultRules.length
             }).map(Number.call, Number), this.falloff)
           }

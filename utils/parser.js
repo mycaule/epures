@@ -1,3 +1,5 @@
+/* eslint max-depth: ["error", 6] */
+
 const parse = rule => {
   let depth = 0
   let inTag = false

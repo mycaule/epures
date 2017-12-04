@@ -8,7 +8,7 @@
     "url": "git://github.com/mycaule/epures.git"
   },
   "scripts": {
-    "test": "ava --verbose"
+    "test": "xo && ava --verbose"
   },
   "author": "Michel Hua",
   "license": "Apache-2.0",

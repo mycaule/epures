@@ -1,5 +1,4 @@
-/* eslint no-use-before-define: "error" */
-/* eslint-env es6 */
+/* eslint no-use-before-define: [2, {classes: false}] */
 
 const Parser = require('./parser')
 

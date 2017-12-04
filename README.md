@@ -82,8 +82,6 @@ npm version [patch, minor, major]
 npm publish
 ```
 
-[![NPM](https://nodei.co/npm/epures.png)](https://nodei.co/npm/epures/)
-
 ### License
 `epures` is licensed under the [Apache 2.0 License](https://github.com/mycaule/epures/blob/master/LICENSE).
 
