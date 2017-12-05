@@ -16,6 +16,8 @@
 
 A story grammar generation library written in ES6. This is a repackaging of the client-side library [tracery](https://github.com/galaxykate/tracery).
 
+My goal is to provide more tests and structure to the project to make it scalable, and to document interesting usecases properly.
+
 ## History
 
 This is a 2018 update of Kate and George work on the [tracery](https://github.com/v21/tracery) grammar generation library published two years ago. Since then it is unmaintained, but new opportunities in the chatbot area make it interesting for server side usage.
@@ -35,6 +37,8 @@ $ npm install epures --save
 See [the samples folder](/samples) for more usecases.
 
 ### Running with Node.js
+
+#### Basic example
 ```bash
 $ node samples/quickstart.js
 ```
@@ -53,6 +57,8 @@ console.log(grammar.flatten('#origin#'))
 
 // I am an angry fox.
 ```
+
+#### Custom modifier
 
 A modifier in a JavaScript object with functions of map a string to a new string.
 
@@ -82,6 +88,10 @@ console.log(grammar.flatten('#origin#'))
 
 // The iguana is *****.
 ```
+
+#### More usecases
+
+More usecases can be found in the [unit tests](index.test.js). You will also find more detailed information in the [documentation](/wiki).
 
 ### Running with the browser
 
@@ -121,10 +131,10 @@ $ open /samples/quickstart.html
 - [x] Fix the build (use [xo](https://github.com/sindresorhus/xo), [ava](https://github.com/avajs/ava) packages and [Modern JS](https://github.com/mbeaudru/modern-js-cheatsheet))
 - [x] [Webpack](https://webpack.js.org) support for client-side code.
 - [x] Merge existing unit tests ([test1](https://github.com/galaxykate/tracery/blob/tracery2/js/test.js), [test2](https://github.com/galaxykate/tracery/blob/tracery2/js/test2.js))
+- [x] Better documentation using [/samples](/samples)
+- [x] Add support for more languages (notably French, German and Spanish). See [faker.js](https://github.com/Marak/faker.js/tree/master/lib/locales) for file structure and samples.
 - [ ] Add tests for the [/utils](/utils) classes
-- [ ] Better documentation using [/samples](/samples)
 - [ ] Check why `UglifyJsPlugin` breaks the library
-- [ ] Add support for more languages (notably French, German and Spanish). See [faker.js](https://github.com/Marak/faker.js/tree/master/lib/locales) for file structure and samples.
 - [ ] Add support for [command line usage](https://github.com/mattallty/Caporal.js)
 - [ ] Add support for [Dialogflow](https://dialogflow.com) import formats
 
