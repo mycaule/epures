@@ -137,9 +137,13 @@ $ open /samples/quickstart.html
 - [x] Better documentation using [/samples](/samples)
 - [x] Add support for more languages (notably French, German and Spanish). See [faker.js](https://github.com/Marak/faker.js/tree/master/lib/locales) for file structure and samples.
 - [ ] Add tests for the [/utils](/utils) classes
-- [ ] Check why `UglifyJsPlugin` breaks the library
 - [ ] Add support for [command line usage](https://github.com/mattallty/Caporal.js)
 - [ ] Add support for [Dialogflow](https://dialogflow.com) import formats
+
+### Bugs
+
+- [ ] Check why `UglifyJsPlugin` breaks the library
+- [ ] Check why 'Maximum call stack size exceeded' in the *Create a grammar that can itself create valid grammars* unit test. Appears randomly. Restarting Travis job solves the problem.
 
 ### Running the tests
 

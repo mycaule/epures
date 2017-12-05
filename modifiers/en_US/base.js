@@ -1,47 +1,7 @@
 const common = require('../common')
 
-const isVowel = c => {
-  const c2 = c.toLowerCase()
-  return (c2 === 'a') || (c2 === 'e') || (c2 === 'i') || (c2 === 'o') || (c2 === 'u')
-}
-
-const isAlphaNum = c => {
-  return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9')
-}
-
-const escapeRegExp = str => {
-  // Return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, '\\$1')
-  return str.replace(/([.*+?^=!:${}()|[\]/\\])/g, '\\$1')
-}
-
-const base = {
-  replace(s, params) {
-    // http://stackoverflow.com/questions/1144783/replacing-all-occurrences-of-a-string-in-javascript
-    return s.replace(new RegExp(escapeRegExp(params[0]), 'g'), params[1])
-  },
-
-  capitalizeAll(s) {
-    let s2 = ''
-    let capNext = true
-    for (let i = 0; i < s.length; i++) {
-      if (!isAlphaNum(s.charAt(i))) {
-        capNext = true
-        s2 += s.charAt(i)
-      } else if (capNext) {
-        s2 += s.charAt(i).toUpperCase()
-        capNext = false
-      } else {
-        s2 += s.charAt(i)
-      }
-    }
-    return s2
-  },
-
-  capitalize(s) {
-    return s.charAt(0).toUpperCase() + s.substring(1)
-  },
-
-  a(s) {
+const langRules = {
+  a: s => {
     // Beware that this only covers some most common cases
     // https://english.stackexchange.com/questions/152/when-should-i-use-a-vs-an
     if (s.length > 0) {
@@ -53,7 +13,7 @@ const base = {
         }
       }
 
-      if (isVowel(s.charAt(0))) {
+      if (common.isVowel(s.charAt(0))) {
         return 'an ' + s
       }
     }
@@ -61,14 +21,14 @@ const base = {
     return 'a ' + s
   },
 
-  firstS(s) {
+  firstS: s => {
     const s2 = s.split(' ')
 
-    const finished = base.s(s2[0]) + ' ' + s2.slice(1).join(' ')
+    const finished = langRules.s(s2[0]) + ' ' + s2.slice(1).join(' ')
     return finished
   },
 
-  s(s) {
+  s: s => {
     switch (s.charAt(s.length - 1)) {
       case 's':
         return s + 'es'
@@ -77,7 +37,7 @@ const base = {
       case 'x':
         return s + 'es'
       case 'y':
-        if (!isVowel(s.charAt(s.length - 2))) {
+        if (!common.isVowel(s.charAt(s.length - 2))) {
           return s.substring(0, s.length - 1) + 'ies'
         }
         return s + 's'
@@ -86,7 +46,7 @@ const base = {
     }
   },
 
-  ed(s) {
+  ed: s => {
     switch (s.charAt(s.length - 1)) {
       case 's':
         return s + 'ed'
@@ -97,7 +57,7 @@ const base = {
       case 'x':
         return s + 'ed'
       case 'y':
-        if (!isVowel(s.charAt(s.length - 2))) {
+        if (!common.isVowel(s.charAt(s.length - 2))) {
           return s.substring(0, s.length - 1) + 'ied'
         }
         return s + 'd'
@@ -107,4 +67,4 @@ const base = {
   }
 }
 
-module.exports = Object.assign({}, common, base)
+module.exports = Object.assign({}, common, langRules)

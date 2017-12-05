@@ -1,6 +1,6 @@
 /* eslint no-useless-escape: "off" */
 
-import test from 'ava'
+import {test, skip} from 'ava'
 
 const epures = require('./index')
 
@@ -136,7 +136,7 @@ test('Errors', t => {
   console.log(`Errors - ${r[5]}`)
 })
 
-test('Create a grammar that can itself create valid grammars', async t => {
+skip('Create a grammar that can itself create valid grammars', async t => {
   const makeGrammar = () => {
     const inQuotes = s => '"' + s + '"'
 
