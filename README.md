@@ -62,6 +62,40 @@ console.log(grammar.flatten('#origin#'))
 // I am an angry fox.
 ```
 
+#### Integrating external sources of data
+
+You can use the [ES6 generator](https://github.com/mbeaudru/modern-js-cheatsheet#generators) syntax to generate grammars with realistic data.
+
+```bash
+$ node samples/faker-data.js
+```
+```javascript
+const faker = require('faker/locale/en')
+const epures = require('../index')
+
+function * nameMaker(n, fn) {
+  for (let i = n; i > 0; --i) {
+    yield fn()
+  }
+}
+
+const rawData = {
+  bs: [...nameMaker(20, faker.company.bs)],
+  catchPhraseDescriptor: [...nameMaker(20, faker.company.catchPhraseDescriptor)],
+  catchPhraseAdjective: [...nameMaker(20, faker.company.catchPhraseAdjective)],
+  catchPhraseNoun: [...nameMaker(20, faker.company.catchPhraseNoun)],
+  bsAdjective: [...nameMaker(20, faker.company.bsAdjective)],
+  origin: ['You can try our #bs# with #catchPhraseAdjective.lowerCase.a# #catchPhraseDescriptor# #catchPhraseNoun#.']
+}
+const grammar = epures.createGrammar(rawData)
+
+grammar.addModifiers(epures.modifiers.en_US)
+
+console.log(grammar.flatten('#origin#'))
+
+// You can try our vertical visualize vortals with a streamlined even-keeled emulation.
+```
+
 #### Custom modifier
 
 A modifier in a JavaScript object with functions of map a string to a new string.
