@@ -61,7 +61,7 @@ var epures =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -260,11 +260,17 @@ class RuleSet {
     this.grammar = grammar
     this.falloff = 1
 
+    this.rng = Math.random
+
     if (Array.isArray(raw)) {
       this.defaultRules = raw
     } else if (typeof raw === 'string' || raw instanceof String) {
       this.defaultRules = [raw]
     }
+  }
+
+  setRng(newRng) {
+    this.rng = newRng
   }
 
   static fyshuffle(array) {
@@ -275,7 +281,7 @@ class RuleSet {
     // While there remain elements to shuffle...
     while (currentIndex !== 0) {
       // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex)
+      randomIndex = Math.floor(this.rng() * currentIndex)
       currentIndex -= 1
 
       // And swap it with the current element.
@@ -341,8 +347,7 @@ class RuleSet {
           errors.push('Falloff distribution not yet implemented')
           break
         default:
-
-          index = Math.floor(Math.pow(Math.random(), this.falloff) * this.defaultRules.length)
+          index = Math.floor(Math.pow(this.rng(), this.falloff) * this.defaultRules.length)
           break
       }
 
@@ -373,7 +378,7 @@ module.exports = RuleSet
 
 /* eslint no-use-before-define: [2, {classes: false}] */
 
-const Parser = __webpack_require__(5)
+const Parser = __webpack_require__(6)
 
 // An action that occurs when a node is expanded
 // Types of actions:
@@ -637,16 +642,31 @@ module.exports = EpuresNode
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = __webpack_require__(8)
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* eslint camelcase: [2, {properties: "never"}] */
+
 const Grammar = __webpack_require__(0)
 
 const epures = (() => {
+  const ruleset = __webpack_require__(2)
+
   return {
     createGrammar: raw => new Grammar(raw),
-    baseEngModifiers: __webpack_require__(6),
+    modifiers: {
+      en_US: __webpack_require__(7),
+      fr_FR: __webpack_require__(10)
+    },
     EpuresNode: __webpack_require__(3),
     Grammar: __webpack_require__(0),
     Symbol: __webpack_require__(1),
-    RuleSet: __webpack_require__(2)
+    RuleSet: ruleset,
+    setRng: rng => ruleset.setRng(rng)
   }
 })()
 
@@ -654,7 +674,7 @@ module.exports = epures
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports) {
 
 /* eslint max-depth: ["error", 6] */
@@ -821,10 +841,10 @@ module.exports = {parseTag, parse}
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const common = __webpack_require__(7)
+const common = __webpack_require__(4)
 
 const isVowel = c => {
   const c2 = c.toLowerCase()
@@ -934,13 +954,6 @@ const base = {
 }
 
 module.exports = Object.assign({}, common, base)
-
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(8)
 
 
 /***/ }),
@@ -4966,6 +4979,52 @@ try {
 // easier to handle this case. if(!global) { ...}
 
 module.exports = g;
+
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const common = __webpack_require__(4)
+
+const isAlphaNum = c => {
+  return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9')
+}
+
+const escapeRegExp = str => {
+  // Return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, '\\$1')
+  return str.replace(/([.*+?^=!:${}()|[\]/\\])/g, '\\$1')
+}
+
+const base = {
+  replace(s, params) {
+    // http://stackoverflow.com/questions/1144783/replacing-all-occurrences-of-a-string-in-javascript
+    return s.replace(new RegExp(escapeRegExp(params[0]), 'g'), params[1])
+  },
+
+  capitalizeAll(s) {
+    let s2 = ''
+    let capNext = true
+    for (let i = 0; i < s.length; i++) {
+      if (!isAlphaNum(s.charAt(i))) {
+        capNext = true
+        s2 += s.charAt(i)
+      } else if (capNext) {
+        s2 += s.charAt(i).toUpperCase()
+        capNext = false
+      } else {
+        s2 += s.charAt(i)
+      }
+    }
+    return s2
+  },
+
+  capitalize(s) {
+    return s.charAt(0).toUpperCase() + s.substring(1)
+  }
+}
+
+module.exports = Object.assign({}, common, base)
 
 
 /***/ })

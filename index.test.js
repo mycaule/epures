@@ -24,7 +24,7 @@ const grammar = epures.createGrammar({
   origin: ['#[#setPronouns#][#setOccupation#][hero:#name#]story#']
 })
 
-grammar.addModifiers(epures.baseEngModifiers)
+grammar.addModifiers(epures.modifiers.en_US)
 
 test.before(() => {
   grammar.clearState()
@@ -34,8 +34,9 @@ test('createGrammar', t => {
   t.true(typeof epures.createGrammar === 'function')
 })
 
-test('baseEngModifiers', t => {
-  t.true(typeof epures.baseEngModifiers === 'object')
+test('modifiers', t => {
+  t.true(typeof epures.modifiers.en_US === 'object')
+  t.true(typeof epures.modifiers.fr_FR === 'object')
 })
 
 test('EpuresNode', t => {
@@ -173,7 +174,7 @@ test('Create a grammar that can itself create valid grammars', async t => {
     const raw = '{' + symbols.join(',\n') + '}'
 
     const grammar = epures.createGrammar(JSON.parse(raw))
-    grammar.addModifiers(epures.baseEngModifiers)
+    grammar.addModifiers(epures.modifiers.en_US)
 
     console.log(`Make Grammar - ${raw}`)
     t.true(raw.length > 0)

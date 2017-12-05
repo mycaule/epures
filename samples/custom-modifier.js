@@ -3,11 +3,15 @@ const epures = require('../index')
 const grammar = epures.createGrammar({
   animal: ['panda', 'fox', 'capybara', 'iguana'],
   emotion: ['sad', 'happy', 'angry', 'jealous'],
-  origin: ['I am #emotion.a# #animal#.']
+  origin: ['The #animal# is #emotion.passwordify#.']
 })
 
-grammar.addModifiers(epures.modifiers.en_US)
+const myModifier = {
+  passwordify: s => new Array(s.length + 1).join('*')
+}
+
+grammar.addModifiers(myModifier)
 
 console.log(grammar.flatten('#origin#'))
 
-// I am an angry fox.
+// The iguana is *****.

@@ -1,3 +1,5 @@
+/* eslint camelcase: [2, {properties: "never"}] */
+
 const Grammar = require('./utils/grammar')
 
 const epures = (() => {
@@ -5,7 +7,10 @@ const epures = (() => {
 
   return {
     createGrammar: raw => new Grammar(raw),
-    baseEngModifiers: require('./modifiers/en_US/base'),
+    modifiers: {
+      en_US: require('./modifiers/en_US/base'),
+      fr_FR: require('./modifiers/fr_FR/base')
+    },
     EpuresNode: require('./utils/epure'),
     Grammar: require('./utils/grammar'),
     Symbol: require('./utils/symbol'),

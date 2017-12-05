@@ -47,13 +47,38 @@ var grammar = epures.createGrammar({
   'origin':['I am #emotion.a# #animal#.'],
 })
 
-grammar.addModifiers(epures.baseEngModifiers)
+grammar.addModifiers(epures.modifiers.en_US)
 
 console.log(grammar.flatten('#origin#'))
 
-// I am a happy iguana.
 // I am an angry fox.
-// I am a sad capybara.
+```
+
+Defining your own modifier. A modifier in a JavaScript object with functions of map a string to a new string.
+
+The base collection of modifiers supports common transformations on strings from the library [VocaJS](https://vocajs.com) and is available for `en_US` and `fr_FR` localizations. Feel free to add more supported language to contribute to the library!
+
+```bash
+$ node samples/custom-modifier.js
+```
+```javascript
+const epures = require('../index')
+
+const grammar = epures.createGrammar({
+  animal: ['panda', 'fox', 'capybara', 'iguana'],
+  emotion: ['sad', 'happy', 'angry', 'jealous'],
+  origin: ['The #animal# is #emotion.passwordify#.']
+})
+
+const myModifier = {
+  passwordify: s => new Array(s.length + 1).join('*')
+}
+
+grammar.addModifiers(myModifier)
+
+console.log(grammar.flatten('#origin#'))
+
+// The iguana is *****.
 ```
 
 ### Running with the browser
@@ -77,7 +102,7 @@ $ open /samples/quickstart.html
     origin: ['I am #emotion.a# #animal#.']
   })
 
-  grammar.addModifiers(epures.baseEngModifiers)
+  grammar.addModifiers(epures.modifiers.en_US)
 
   console.log(grammar.flatten('#origin#'))
   console.log(grammar.flatten('#origin#'))
