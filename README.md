@@ -7,9 +7,12 @@
 
 <p align="center">
   <a href="http://travis-ci.org/mycaule/epures"><img src="https://api.travis-ci.org/mycaule/epures.svg?branch=master" alt="Build Status"></a>
-  <a href="https://www.npmjs.com/package/epures"><img src="https://img.shields.io/npm/v/epures.svg" alt="npm package"></a>
   <a href="https://david-dm.org/mycaule/epures"><img src="https://david-dm.org/mycaule/epures/status.svg" alt="dependencies Status"></a>
   <a href="https://david-dm.org/mycaule/epures?type=dev"><img src="https://david-dm.org/mycaule/epures/dev-status.svg" alt="devDependencies Status"></a>
+	<br>
+	<a href="https://www.npmjs.com/package/epures"><img src="https://img.shields.io/npm/v/epures.svg" alt="npm package"></a>
+	<a href="https://www.npmjs.com/package/epures"><img src="https://img.shields.io/npm/dw/epures.svg" alt="npm package"></a>
+	<a href="https://www.npmjs.com/package/epures"><img src="https://img.shields.io/npm/l/epures.svg" alt="npm package"></a>
   <br>
   <br>
 </p>
