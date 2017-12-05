@@ -16,7 +16,7 @@
 
 A story grammar generation library written in ES6. This is a repackaging of the client-side library [tracery](https://github.com/galaxykate/tracery).
 
-My goal is to provide more tests and structure to the project to make it scalable, and to document interesting usecases properly.
+My goal is to provide more tests and structure to the project to make it scalable, and to [document interesting usecases](https://github.com/mycaule/epures/wiki) properly.
 
 ## History
 
@@ -91,7 +91,7 @@ console.log(grammar.flatten('#origin#'))
 
 #### More usecases
 
-More usecases can be found in the [unit tests](index.test.js). You will also find more detailed information in the [documentation](/wiki).
+More usecases can be found in the [unit tests](index.test.js). You will also find more detailed information in the [documentation](https://github.com/mycaule/epures/wiki).
 
 ### Running with the browser
 
@@ -140,8 +140,15 @@ $ open /samples/quickstart.html
 
 ### Running the tests
 
-```
+You can lint the code and run all unit tests using that script.
+```bash
 npm test
+```
+
+To run only one file, I would suggest you using `ava` command. For example, if you work on the English modifier only `modifiers/en_US/base.js`, the good practice is to run the corresponding test continuously.
+
+```bash
+ava modifiers/en_US/base.test.js --watch
 ```
 
 ### Publishing
