@@ -55,6 +55,21 @@ test('isFeminine', t => {
   t.is(lang.isFeminine('chienne'), true)
 })
 
+test('isPlural', t => {
+  t.true(typeof lang.isPlural === 'function')
+  t.is(lang.isPlural('bateaux'), true)
+  t.is(lang.isPlural('noyaux'), true)
+  t.is(lang.isPlural('cheveux'), true)
+  t.is(lang.isPlural('journaux'), true)
+  t.is(lang.isPlural('chevaux'), true)
+
+  t.is(lang.isPlural('portails'), true)
+  t.is(lang.isPlural('rails'), true)
+
+  t.is(lang.isPlural('fous'), true)
+  t.is(lang.isPlural('trous'), true)
+})
+
 test('femininize', t => {
   t.true(typeof lang.femininize === 'function')
   t.is(lang.femininize('donné'), 'donnée')
@@ -66,6 +81,10 @@ test('-le-', t => {
   t.is(lang.le('chèvrefeuille'), 'le chèvrefeuille')
   t.is(lang.le('abeille'), 'l\'abeille')
   t.is(lang.le('pomme'), 'la pomme')
+
+  t.is(lang.le('pommes'), 'les pommes')
+  t.is(lang.le('trous'), 'les trous')
+  t.is(lang.le('noyaux'), 'les noyaux')
 })
 
 test('-un-', t => {
@@ -73,4 +92,7 @@ test('-un-', t => {
   t.is(lang.un('écureuil'), 'un écureuil')
   t.is(lang.un('oreille'), 'une oreille')
   t.is(lang.un('chienne'), 'une chienne')
+
+  t.is(lang.un('chiennes'), 'des chiennes')
+  t.is(lang.un('cheveux'), 'des cheveux')
 })

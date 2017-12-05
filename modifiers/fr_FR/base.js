@@ -39,10 +39,40 @@ const lang = {
     return false
   },
 
+  isPlural: s => {
+    const last4 = common.last(s, 4)
+    const last3 = common.last(s, 3)
+    const last1 = common.last(s, 1)
+
+    if (last4 === 'ails') {
+      return true
+    } else if (last4 === 'eaux') {
+      return true
+    } else if (last3 === 'aux') {
+      return true
+    } else if (last3 === 'eux') {
+      return true
+    } else if (last3 === 'aux') {
+      return true
+    } else if (last3 === 'ous') {
+      return true
+    } else if (last1 === 's') {
+      return true
+    } else if (last1 === 'x') {
+      return true
+    } else if (last1 === 'z') {
+      return true
+    }
+
+    return false
+  },
+
   le: s => {
     const first1 = common.first(s, 1)
     if (common.isVowel(first1)) {
       return `l'${s}`
+    } else if (lang.isPlural(s)) {
+      return `les ${s}`
     } else if (lang.isFeminine(s)) {
       return `la ${s}`
     }
@@ -50,7 +80,9 @@ const lang = {
   },
 
   un: s => {
-    if (lang.isFeminine(s)) {
+    if (lang.isPlural(s)) {
+      return `des ${s}`
+    } else if (lang.isFeminine(s)) {
       return `une ${s}`
     }
     return `un ${s}`
