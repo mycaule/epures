@@ -20,6 +20,7 @@
 A story grammar generation library written in ES6. This is a repackaging of the client-side library [tracery](https://github.com/galaxykate/tracery).
 
 My goal is to provide more tests and structure to the project to make it scalable, and to [document interesting usecases](https://github.com/mycaule/epures/wiki) properly.
+I would also like it to be able to support more languages such as French, Spanish and German.
 
 ## History
 

@@ -1,7 +1,7 @@
 import test from 'ava'
 
-const base = require('./base')
+const lang = require('./base')
 
-test('base', t => {
-  t.true(typeof base === 'object')
+test('lang', t => {
+  t.true(typeof lang === 'object')
 })
