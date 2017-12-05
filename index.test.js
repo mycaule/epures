@@ -36,7 +36,9 @@ test('createGrammar', t => {
 
 test('modifiers', t => {
   t.true(typeof epures.modifiers.en_US === 'object')
+  t.true(typeof epures.modifiers.es === 'object')
   t.true(typeof epures.modifiers.fr_FR === 'object')
+  t.true(typeof epures.modifiers.ge === 'object')
 })
 
 test('EpuresNode', t => {

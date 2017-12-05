@@ -9,7 +9,9 @@ const epures = (() => {
     createGrammar: raw => new Grammar(raw),
     modifiers: {
       en_US: require('./modifiers/en_US/base'),
-      fr_FR: require('./modifiers/fr_FR/base')
+      es: require('./modifiers/es/base'),
+      fr_FR: require('./modifiers/fr_FR/base'),
+      ge: require('./modifiers/ge/base')
     },
     EpuresNode: require('./utils/epure'),
     Grammar: require('./utils/grammar'),
