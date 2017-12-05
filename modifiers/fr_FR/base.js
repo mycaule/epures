@@ -86,6 +86,34 @@ const lang = {
       return `une ${s}`
     }
     return `un ${s}`
+  },
+
+  s: s => {
+    const last3 = common.last(s, 3)
+    const last2 = common.last(s, 2)
+    const last1 = common.last(s, 1)
+
+    if (last3 === 'ail') {
+      return `${s}s`
+    } else if (last3 === 'eau') {
+      return `${s}x`
+    } else if (last2 === 'au') {
+      return `${s}x`
+    } else if (last2 === 'eu') {
+      return `${s}x`
+    } else if (last2 === 'au') {
+      return `${s}x`
+    } else if (last2 === 'ou') {
+      return `${s}s`
+    } else if (last1 === 's') {
+      return s
+    } else if (last1 === 'x') {
+      return s
+    } else if (last1 === 'z') {
+      return s
+    }
+
+    return false
   }
 }
 

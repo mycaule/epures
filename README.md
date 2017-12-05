@@ -121,8 +121,6 @@ $ open /samples/quickstart.html
   grammar.addModifiers(epures.modifiers.en_US)
 
   console.log(grammar.flatten('#origin#'))
-  console.log(grammar.flatten('#origin#'))
-  console.log(grammar.flatten('#origin#'))
 </script>
 ```
 

@@ -96,3 +96,10 @@ test('-un-', t => {
   t.is(lang.un('chiennes'), 'des chiennes')
   t.is(lang.un('cheveux'), 'des cheveux')
 })
+
+test('-s-', t => {
+  t.is(typeof lang.s, 'function')
+  t.is(lang.s('fou'), 'fous')
+  t.is(lang.s('rail'), 'rails')
+  t.is(lang.s('nez'), 'nez')
+})
