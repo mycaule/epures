@@ -7,6 +7,7 @@ function * nameMaker(n, fn) {
   }
 }
 
+console.log([...nameMaker(20, faker.company.bsAdjective)].join(', '))
 const rawData = {
   bs: [...nameMaker(20, faker.company.bs)],
   catchPhraseDescriptor: [...nameMaker(20, faker.company.catchPhraseDescriptor)],
