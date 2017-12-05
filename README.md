@@ -54,9 +54,11 @@ console.log(grammar.flatten('#origin#'))
 // I am an angry fox.
 ```
 
-Defining your own modifier. A modifier in a JavaScript object with functions of map a string to a new string.
+A modifier in a JavaScript object with functions of map a string to a new string.
 
 The base collection of modifiers supports common transformations on strings from the library [VocaJS](https://vocajs.com) and is available for `en_US` and `fr_FR` localizations. Feel free to add more supported language to contribute to the library!
+
+You can reuse existing modifiers using `epures.modifiers` or define your own like in this example.
 
 ```bash
 $ node samples/custom-modifier.js
