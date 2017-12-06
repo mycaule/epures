@@ -164,10 +164,9 @@ $ open /samples/quickstart.html
 - [x] [Webpack](https://webpack.js.org) support for client-side code.
 - [x] Merge existing unit tests ([test1](https://github.com/galaxykate/tracery/blob/tracery2/js/test.js), [test2](https://github.com/galaxykate/tracery/blob/tracery2/js/test2.js))
 - [x] Better documentation using [/samples](/samples)
-- [x] Add support for more languages (notably French, German and Spanish). See [faker.js](https://github.com/Marak/faker.js/tree/master/lib/locales) for file structure and samples.
+- [x] Add support for more languages (notably French, German and Spanish). See [faker.js](https://github.com/Marak/faker.js/tree/master/lib/locales) for file structure and samples. See [natural/stemmers](https://github.com/NaturalNode/natural/tree/master/lib/natural/stemmers) for languages rules implementation.
 - [ ] Add tests for the [/utils](/utils) classes
-- [ ] Add support for [command line usage](https://github.com/mattallty/Caporal.js)
-- [ ] Add support for [Dialogflow](https://dialogflow.com) import formats
+- [ ] File exports of generated samples (eg. [Dialogflow](https://dialogflow.com) CSV import format)
 
 ### Bugs
 
