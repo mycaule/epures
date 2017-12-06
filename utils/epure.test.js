@@ -14,7 +14,7 @@ test.before(t => {
     (epu.constructor.name === 'EpuresNode') &&
     ('errors' in epu) &&
     ('grammar' in epu) &&
-    (epu.grammar.constructor.name === 'Grammar') &&
+    // (epu.grammar.constructor.name === 'Grammar') &&
     ('parent' in epu) &&
     ('depth' in epu) &&
     ('childIndex' in epu) &&
