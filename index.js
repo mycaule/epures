@@ -13,6 +13,7 @@ const epures = (() => {
       fr_FR: require('./modifiers/fr_FR/base'),
       ge: require('./modifiers/ge/base')
     },
+    generators: require('./utils/generators'),
     EpuresNode: require('./utils/epure'),
     Grammar: require('./utils/grammar'),
     Symbol: require('./utils/symbol'),

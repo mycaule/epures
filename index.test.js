@@ -41,6 +41,10 @@ test('modifiers', t => {
   t.true(typeof epures.modifiers.ge === 'object')
 })
 
+test('generators', t => {
+  t.true(typeof epures.generators.getSamples === 'function')
+})
+
 test('EpuresNode', t => {
   t.true(typeof epures.EpuresNode === 'function')
 })
