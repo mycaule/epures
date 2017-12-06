@@ -8,10 +8,9 @@ class Grammar {
   }
 
   clearState() {
-    const keys = Object.keys(this.symbols)
-    for (let i = 0; i < keys.length; i++) {
-      this.symbols[keys[i]].clearState()
-    }
+    Object.keys(this.symbols).forEach(key => {
+      this.symbols[key].clearState()
+    })
   }
 
   addModifiers(mods) {
@@ -65,12 +64,7 @@ class Grammar {
   }
 
   toJSON() {
-    const keys = Object.keys(this.symbols)
-    const symbolJSON = []
-    for (let i = 0; i < keys.length; i++) {
-      const key = keys[i]
-      symbolJSON.push(' "' + key + '" : ' + this.symbols[key].rulesToJSON())
-    }
+    const symbolJSON = Object.keys(this.symbols).map(key => ' "' + key + '" : ' + this.symbols[key].rulesToJSON())
     return '{\n' + symbolJSON.join(',\n') + '\n}'
   }
 
@@ -101,11 +95,11 @@ class Grammar {
     }
 
     // Failover to alternative subgrammars
-    for (let i = 0; i < this.subgrammars.length; i++) {
-      if (this.subgrammars[i].symbols[key]) {
-        return this.subgrammars[i].symbols[key].selectRule()
+    this.subgrammars.forEach(subgrammar => {
+      if (subgrammar.symbols[key]) {
+        return subgrammar.symbols[key].selectRule()
       }
-    }
+    })
 
     // No symbol
     errors.push('No symbol for \'' + key + '\'')

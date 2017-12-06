@@ -54,11 +54,9 @@ class RuleSet {
 
     // Is there a ranked order?
     if (this.ranking) {
-      for (let i = 0; i < this.ranking.length; i++) {
-        const v = this.ranking.selectRule()
-        if (v !== null && v !== undefined) {
-          return v
-        }
+      const v = this.ranking.selectRule()
+      if (v !== null && v !== undefined) {
+        return v
       }
     }
 

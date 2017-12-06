@@ -44,16 +44,16 @@ class NodeAction {
         this.ruleSections = this.rule.split(',')
         this.finishedRules = []
         this.ruleNodes = []
-        for (let i = 0; i < this.ruleSections.length; i++) {
+        this.ruleSections.forEach(rule => {
           const n = new EpuresNode(grammar, 0, {
             type: -1,
-            raw: this.ruleSections[i]
+            raw: rule
           })
 
           n.expand()
 
           this.finishedRules.push(n.finishedText)
-        }
+        })
 
         grammar.pushRules(this.target, this.finishedRules, this)
         break
@@ -139,15 +139,15 @@ class EpuresNode {
         this.errors = this.errors.concat(sections.errors)
       }
 
-      for (let i = 0; i < sections.length; i++) {
-        this.children[i] = new EpuresNode(this, i, sections[i])
+      sections.forEach((section, i) => {
+        this.children[i] = new EpuresNode(this, i, section)
         if (!preventRecursion) {
           this.children[i].expand(preventRecursion)
         }
 
         // Add in the finished text
         this.finishedText += this.children[i].finishedText
-      }
+      })
     }
   }
 
@@ -189,9 +189,9 @@ class EpuresNode {
           this.modifiers = parsed.modifiers
 
           // Create all the preactions from the raw syntax
-          for (let i = 0; i < parsed.preactions.length; i++) {
-            this.preactions[i] = new NodeAction(this, parsed.preactions[i].raw)
-          }
+          parsed.preactions.forEach((preaction, i) => {
+            this.preactions[i] = new NodeAction(this, preaction.raw)
+          })
 
           // Make undo actions for all preactions (pops for each push)
           this.preactions.forEach(pa => {

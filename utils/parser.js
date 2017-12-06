@@ -136,17 +136,17 @@ const parseTag = tagContents => {
   }
   const sections = parse(tagContents)
   let symbolSection
-  for (let i = 0; i < sections.length; i++) {
-    if (sections[i].type === 0) {
+  sections.forEach(section => {
+    if (section.type === 0) {
       if (symbolSection === undefined) {
-        symbolSection = sections[i].raw
+        symbolSection = section.raw
       } else {
         throw new Error('multiple main sections in ' + tagContents)
       }
     } else {
-      parsed.preactions.push(sections[i])
+      parsed.preactions.push(section)
     }
-  }
+  })
 
   if (symbolSection === undefined) {
     // Throw ("no main section in " + tagContents);
