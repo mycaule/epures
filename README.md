@@ -98,9 +98,9 @@ console.log(grammar.flatten('#origin#'))
 
 #### Custom modifier
 
-A modifier in a JavaScript object with functions of map a string to a new string.
+A modifier is a JavaScript object grouping a list a functions mapping string to string.
 
-The base collection of modifiers supports common transformations on strings from the library [VocaJS](https://vocajs.com) and is available for `en_US` and `fr_FR` localizations. Feel free to add more supported language to contribute to the library!
+The base collection of modifiers supports common transformations on strings from the library [VocaJS](https://vocajs.com) and is available for in various localizations. Feel free to add more supported language to contribute to the library!
 
 You can reuse existing modifiers using `epures.modifiers` or define your own like in this example.
 
@@ -133,7 +133,7 @@ More usecases can be found in the [unit tests](index.test.js). You will also fin
 
 ### Running with the browser
 
-[A bundle library](/dist/epures.webpack.js) can be generated using [Webpack](https://webpack.js.org).
+[A bundle library](/dist/epures.webpack.js) can be generated using [Webpack](https://webpack.js.org). Just include the `epures.min.js` file in the HTML, and use the library.
 
 ```bash
 npm run build
@@ -143,10 +143,10 @@ $ open /samples/quickstart.html
 ```
 
 ```html
-<script src="../dist/epures.webpack.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/epures/dist/epures.min.js"></script>
 
 <script>
-  let grammar = epures.createGrammar({
+  const grammar = epures.createGrammar({
     animal: ['panda', 'fox', 'capybara', 'iguana'],
     emotion: ['sad', 'happy', 'angry', 'jealous'],
     origin: ['I am #emotion.a# #animal#.']
@@ -175,7 +175,7 @@ $ open /samples/quickstart.html
 
 ### Bugs
 
-- [ ] Check why `UglifyJsPlugin` breaks the library
+- [x] Check why `UglifyJsPlugin` breaks the library
 - [ ] Check why 'Maximum call stack size exceeded' in the *Create a grammar that can itself create valid grammars* unit test. Appears randomly. Restarting Travis job solves the problem.
 
 ### Running the tests
@@ -185,7 +185,7 @@ You can lint the code and run all unit tests using that script.
 npm test
 ```
 
-To run only one file, I would suggest you using `ava` command. For example, if you work on the English modifier only `modifiers/en_US/base.js`, the good practice is to run the corresponding test continuously.
+To run tests for only one file, I would suggest you using the `ava` command. For example, if you work on the English modifier only `modifiers/en_US/base.js`, a good practice is to run the corresponding test continuously.
 
 ```bash
 ava modifiers/en_US/base.test.js --watch

@@ -93,7 +93,7 @@ class EpuresNode {
 
     // If the root node of an expansion, it will have the grammar passed as the 'parent'
     // set the grammar from the 'parent', and set all other values for a root node
-    if (parent.constructor.name === 'Grammar') {
+    if (parent.modifiers && parent.raw && parent.symbols && parent.subgrammars) {
       this.grammar = parent
       this.parent = null
       this.depth = 0
