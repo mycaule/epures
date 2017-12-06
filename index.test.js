@@ -180,15 +180,17 @@ skip('Create a grammar that can itself create valid grammars', async t => {
 
     console.log(`Make Grammar - ${raw}`)
     t.true(raw.length > 0)
-    for (let i = 0; i < keys.length; i++) {
-      const expansions = []
-      for (let j = 0; j < 5; j++) {
-        expansions.push(grammar.flatten('#' + keys[i] + '#'))
-      }
+    keys.forEach(key => {
+      const expansions = [
+        grammar.flatten('#' + key + '#'),
+        grammar.flatten('#' + key + '#'),
+        grammar.flatten('#' + key + '#'),
+        grammar.flatten('#' + key + '#'),
+        grammar.flatten('#' + key + '#')
+      ]
 
-      console.log(`Make Grammar - ${expansions}`)
       t.true(expansions.length > 0)
-    }
+    })
   }
 
   await makeGrammar()
