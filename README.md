@@ -203,6 +203,7 @@ npm publish
 ## References
 
 * [Kate Compton - Tracery tutorial](http://www.crystalcodepalace.com/traceryTut.html), check also the [original source code](https://github.com/galaxykate/tracery/tree/tracery2/js/tracery)
-* [Nicole He - Voice Technology is an Opportunity to Make Weird Stuff](https://medium.com/@nicolehe/voice-technology-is-an-opportunity-to-make-weird-stuff-d4296ce7448a)
+* [Nicole He - Voice Technology is an Opportunity to Make Weird Stuff](https://medium.com/@nicolehe/voice-technology-is-an-opportunity-to-make-weird-stuff-d4296ce7448a), check also the [source code](https://github.com/googlecreativelab/mystery-animal)
 * [Chris Umbel - Natural library](https://github.com/NaturalNode/natural)
+* [Dmitri Pavlutin - Voca library](https://github.com/panzerdp/voca)
 * [Steve Worswick - Mitsuku chatbot](http://www.mitsuku.com)
